@@ -13,3 +13,13 @@ Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei num
 - prompt ()
 
 */
+
+//generare 5 numeri randomici
+let randomNumbersArray = [];
+
+for (let i = 0; i < 5; i++) {
+    randomNumbersArray += ' ' + Math.floor(Math.random() * 100) + ' ';
+}
+alert(randomNumbersArray);
+console.log(randomNumbersArray);
+
