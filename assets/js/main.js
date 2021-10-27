@@ -15,10 +15,11 @@ Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei num
 */
 
 //generare 5 numeri randomici
-let randomNumbersArray = [];
+const randomNumbersArray = [];
 
 for (let i = 0; i < 5; i++) {
-    randomNumbersArray += ' ' + Math.floor(Math.random() * 100) + ' ';
+    let randomNumbers = Math.floor(Math.random() * 100);
+    randomNumbersArray.push(randomNumbers)
 }
 alert(randomNumbersArray);
 console.log(randomNumbersArray);
@@ -31,19 +32,32 @@ const countDown = setInterval(function () {
     if (seconds === 0) {
         clearInterval(countDown);
         //generare i 5 prompt per l'utente
+        var userNumber
         for (let i = 0; i < 5; i++) {
-            let userNumber = parseInt(prompt('inserisci il numero che hai visto'))
-            userNumbers.push(userNumber)
+            userNumber = parseInt(prompt('inserisci il numero che hai visto'))
+
         }
+        //numeri inseriti dall'utente
+        let userNumbers = [];
+        userNumbers.push(userNumber)
+        console.log(userNumbers);
+
+        //risultato
+        const result = checkNumbers(userNumbers)
+        console.log(result);
     } else {
         seconds--
     }
 
     console.log(seconds);
 
-}, 100)
+}, 100);
 
-//numeri inseriti dall'utente
-let userNumbers = [];
-console.log(userNumbers);
 
+function checkNumbers(array) {
+    if (randomNumbersArray.includes(array)) {
+        return true
+    } else {
+        return false
+    }
+}
