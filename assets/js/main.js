@@ -23,3 +23,27 @@ for (let i = 0; i < 5; i++) {
 alert(randomNumbersArray);
 console.log(randomNumbersArray);
 
+
+
+//settare il countdown di 30 secondi dopo l'alert
+let seconds = 31;
+const countDown = setInterval(function () {
+    if (seconds === 0) {
+        clearInterval(countDown);
+        //generare i 5 prompt per l'utente
+        for (let i = 0; i < 5; i++) {
+            let userNumber = parseInt(prompt('inserisci il numero che hai visto'))
+            userNumbers.push(userNumber)
+        }
+    } else {
+        seconds--
+    }
+
+    console.log(seconds);
+
+}, 100)
+
+//numeri inseriti dall'utente
+let userNumbers = [];
+console.log(userNumbers);
+
