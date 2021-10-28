@@ -14,8 +14,11 @@ Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei num
 
 */
 
+
+
+////////////////////////////////////// CODICE NON FUNZIONANTE
 //generare 5 numeri randomici
-const randomNumbersArray = [];
+/* const randomNumbersArray = [];
 
 for (let i = 0; i < 5; i++) {
     let randomNumbers = Math.floor(Math.random() * 100);
@@ -60,4 +63,43 @@ function checkNumbers(array) {
     } else {
         return false
     }
+} */
+
+
+///////////////////////////// 
+
+
+const randomNumbers = [];
+
+while (randomNumbers.length < 5) {
+    const randomNumber = Math.floor(Math.random() * 100) + 1;
+
+    if (!randomNumbers.includes(randomNumber)) {
+        randomNumbers.push(randomNumber);
+    }
 }
+
+alert('memorizza i numeri: ' + randomNumbers);
+console.log(randomNumbers);
+
+let x = 30
+const clock = setInterval(function () {
+    document.querySelector('.timer').innerHTML = x
+
+    if (x == -1) {
+        clearInterval(clock)
+        document.querySelector('.timer').innerHTML = '';
+
+        const userNumbers = [];
+        for (let i = 0; i < 5; i++) {
+            const userNumber = parseInt(prompt('scrivi i numeri che hai visto'))
+            if (randomNumbers.includes(userNumber)) {
+                userNumbers.push(userNumber)
+            }
+        }
+        document.querySelector('.result').innerHTML = 'Hai indovinato: ' + userNumbers.length + ' numeri: ' + userNumbers.toString();
+        //alert('hai indovinato: ' + userNumbers.length + ' numeri: ' + userNumbers);
+    }
+
+    x--
+}, 1000);
